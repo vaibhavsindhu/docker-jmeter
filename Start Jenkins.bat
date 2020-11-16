@@ -1,0 +1,1 @@
+docker run -p 8080:8080 -v "C:\Users\Vaibhav.Singh\jenkins:/var/jenkins_home" jenkins/jenkins:lts

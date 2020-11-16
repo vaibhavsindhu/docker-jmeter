@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+        influxdb:
+                image: influxdb
+                environment:
+                        - INFLUXDB_DB=jmeter
+                container_name: influxdb_container
+                restart: always
+                ports:
+                        - "8086:8086"
+                        - "8083:8083"
+                networks:
+                        - LoadTest_Network
+                volumes:
+                        - C:\Users\Vaibhav.Singh\Desktop\jmeter-docker\infulx:/var/lib/influxdb
+        jmeter:
+                image: master                                                        
+                environment:
+                        - JMETER_TEST=MidTier_updated.jmx
+                container_name: jmeterMaster_container
+                networks:
+                        - LoadTest_Network
+                volumes:
+                        - .\DockerShares:/jmeter
+                        - .\Scripts:/Scripts 
+                depends_on:
+                        - influxdb                        
+        grafana:
+                image: grafana   
+                container_name: grafana_container
+                restart: always                     
+                ports:
+                        - "3001:3000"
+                networks:
+                        - LoadTest_Network
+                #volumes:
+                        #- grafana-volume:/var/lib/grafana 
+                depends_on:
+                        - influxdb
+                        - jmeter               
+        slave:
+                image: slave
+                container_name: jmeterSlave_container 
+                networks:
+                        - LoadTest_Network               
+networks:
+        LoadTest_Network:
+#volumes:
+#        grafana-volume:        
+#        influxdb-volume:
+        
