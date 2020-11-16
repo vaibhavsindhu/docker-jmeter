@@ -1,8 +1,8 @@
 #This Dockerfile builds Apache JMeter Master Executable based on jmeterbase
 
-#docker build -t master .
+#docker build -t vaibhavsindhu/master .
 
-FROM base
+FROM vaibhavsindhu/base
 LABEL Description="This image is used to start the Apache JMeter Master Executable"
 
 # Set work directory to be /jmeter

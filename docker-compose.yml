@@ -15,7 +15,7 @@ services:
                 volumes:
                         - C:\Users\Vaibhav.Singh\Desktop\jmeter-docker\infulx:/var/lib/influxdb
         jmeter:
-                image: master                                                        
+                image: vaibhavsindhu/master                                                        
                 environment:
                         - JMETER_TEST=MidTier_updated.jmx
                 container_name: jmeterMaster_container
@@ -40,7 +40,7 @@ services:
                         - influxdb
                         - jmeter               
         slave:
-                image: slave
+                image: vaibhavsindhu/slave
                 container_name: jmeterSlave_container 
                 networks:
                         - LoadTest_Network               

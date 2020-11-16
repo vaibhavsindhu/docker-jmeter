@@ -1,8 +1,8 @@
 #This Dockerfile builds Apache JMeter slave Executable based on a jmeterbase
 
-#docker build -t slave .
+#docker build -t vaibhavsindhu/slave .
 
-FROM base
+FROM vaibhavsindhu/base
 LABEL Description="This image is used to start the Apache JMeter Server/slave Executable"
 
 ARG JMETER_VERSION="5.3"

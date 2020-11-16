@@ -1,5 +1,5 @@
 #This Dockerfile builds Apache JMeter Base Executable
-#docker build -t vaibhavsindhu/jmeterBase .
+#docker build -t vaibhavsindhu/base .
 
 FROM alpine
 
